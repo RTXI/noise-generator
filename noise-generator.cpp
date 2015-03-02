@@ -45,6 +45,8 @@ NoiseGen::NoiseGen(void) : DefaultGUIModel("Noise Generator", ::vars, ::num_vars
 	update( INIT);
 	refresh();
 	printf("Starting NoiseGen Module:\n");
+
+	QTimer::singleShot(0, this, SLOT(resizeMe()));
 }
 
 NoiseGen::~NoiseGen(void) {}

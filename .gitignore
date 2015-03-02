@@ -1,6 +1,7 @@
 # Text Editor backups
 *.swp
 *~
+moc_*
 
 # Compiled Object files
 *.slo
