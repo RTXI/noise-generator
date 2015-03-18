@@ -1,16 +1,16 @@
-PLUGIN_NAME = noise_generator
+PLUGIN_NAME = noisegen
 
-HEADERS = noise-generator.h\
-          /usr/local/lib/rtxi_includes/generator.h\
-          /usr/local/lib/rtxi_includes/gen_whitenoise.h
-
-SOURCES = noise-generator.cpp \
-          moc_noise-generator.cpp\
-          /usr/local/lib/rtxi_includes/generator.cpp\
-          /usr/local/lib/rtxi_includes/gen_whitenoise.cpp
+HEADERS = noisegen.h
 
 LIBS = -lgsl
- 
+
+SOURCES = noisegen.cpp \
+          moc_noisegen.cpp\
+          ../include/gen_whitenoise.cpp\
+          ../include/gen_whitenoise.h\
+          ../include/generator.cpp\
+          ../include/generator.h
+
 ### Do not edit below this line ###
 
 include $(shell rtxi_plugin_config --pkgdata-dir)/Makefile.plugin_compile
