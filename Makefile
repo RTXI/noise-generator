@@ -1,15 +1,15 @@
 PLUGIN_NAME = noisegen
 
-HEADERS = noisegen.h
-
-LIBS = -lgsl
+HEADERS = noisegen.h\
+          include/gen_whitenoise.h\
+          include/generator.h
 
 SOURCES = noisegen.cpp \
           moc_noisegen.cpp\
-          ../include/gen_whitenoise.cpp\
-          ../include/gen_whitenoise.h\
-          ../include/generator.cpp\
-          ../include/generator.h
+          include/gen_whitenoise.cpp\
+          include/generator.cpp
+
+LIBS = -lgsl
 
 ### Do not edit below this line ###
 
