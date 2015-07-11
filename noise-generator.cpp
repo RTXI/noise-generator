@@ -44,7 +44,6 @@ NoiseGen::NoiseGen(void) : DefaultGUIModel("Noise Generator", ::vars, ::num_vars
 	customizeGUI();
 	update( INIT);
 	refresh();
-	printf("Starting NoiseGen Module:\n");
 
 	QTimer::singleShot(0, this, SLOT(resizeMe()));
 }
@@ -114,12 +113,10 @@ void NoiseGen::initStimulus() {
 void NoiseGen::updateMode(int state) {
 	if (state == 2) {
 		mode = WHITEBM;
-		printf("Noise generator now set to Gaussian white noise generated using the Box-Muller method\n");
 		update( MODIFY);
 	}
 	else if (state == 0) {
 		mode = OU;
-		printf("Noise generator now set to OU process\n");
 		update( MODIFY );
 	}
 }
