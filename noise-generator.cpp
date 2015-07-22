@@ -28,9 +28,7 @@ extern "C" Plugin::Object *createRTXIPlugin(void) {
 static NoiseGen::variable_t vars[] = {
 	{ "Noise Waveform", "Noise Waveform", DefaultGUIModel::OUTPUT, },
 	{ "Mean", "Mean", DefaultGUIModel::PARAMETER | DefaultGUIModel::DOUBLE, },
-	{ "Variance", "Variance", DefaultGUIModel::PARAMETER
-		| DefaultGUIModel::DOUBLE, },
-	{ "Time (s)", "Time (s)", DefaultGUIModel::STATE, }, 
+	{ "Variance", "Variance", DefaultGUIModel::PARAMETER | DefaultGUIModel::DOUBLE, },
 };
 
 static size_t num_vars = sizeof(vars) / sizeof(DefaultGUIModel::variable_t);
@@ -44,17 +42,14 @@ NoiseGen::NoiseGen(void) : DefaultGUIModel("Noise Generator", ::vars, ::num_vars
 	customizeGUI();
 	update( INIT);
 	refresh();
-
 	QTimer::singleShot(0, this, SLOT(resizeMe()));
 }
 
 NoiseGen::~NoiseGen(void) {}
 
 void NoiseGen::execute(void) {
-	systime = count * dt; // time in seconds
-	
-	if (mode == WHITEBM) output(0) = whitenoisewave.get() + mean;
-	count++; // increment time
+	if (mode == WHITEBM) 
+		output(0) = whitenoisewave.get() + mean;
 }
 
 void NoiseGen::update(DefaultGUIModel::update_flags_t flag) {
@@ -62,7 +57,6 @@ void NoiseGen::update(DefaultGUIModel::update_flags_t flag) {
 		case INIT:
 			setParameter("Mean", QString::number(mean));
 			setParameter("Variance", QString::number(variance));
-			setState("Time (s)", systime);
 			updateMode(2);
 			break;
 		
@@ -83,8 +77,6 @@ void NoiseGen::update(DefaultGUIModel::update_flags_t flag) {
 			break;
 		
 		case UNPAUSE:
-			systime = 0;
-			count = 0;
 			break;
 		
 		default:
@@ -98,8 +90,6 @@ void NoiseGen::initParameters() {
 	mode = WHITEBM;
 	
 	dt = RT::System::getInstance()->getPeriod() * 1e-9; // s
-	systime = 0;
-	count = 0;
 	output(0) = 0;
 }
 

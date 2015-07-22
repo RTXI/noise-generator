@@ -51,11 +51,7 @@ class NoiseGen : public DefaultGUIModel {
 		double mean;
 		double variance;
 		mode_t mode;
-	
 		GeneratorWNoise whitenoisewave;
-	
-		long long count;
-		double systime;
 		double dt;
 	
 		// QT components
