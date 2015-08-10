@@ -19,7 +19,6 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #include <noise-generator.h>
 #include <math.h>
 #include <main_window.h>
-#include <QtGui>
 
 extern "C" Plugin::Object *createRTXIPlugin(void) {
 	return new NoiseGen();
@@ -103,15 +102,13 @@ void NoiseGen::initStimulus() {
 void NoiseGen::updateMode(int state) {
 	if (state == 2) {
 		mode = WHITEBM;
-		update( MODIFY);
+		update( MODIFY );
 	}
 	else if (state == 0) {
 		mode = OU;
 		update( MODIFY );
 	}
 }
-
-//void NoiseGen::createGUI(DefaultGUIModel::variable_t *var, int size)
 
 void NoiseGen::customizeGUI(void) {
 	QGridLayout *customlayout = DefaultGUIModel::getLayout();
@@ -130,88 +127,3 @@ void NoiseGen::customizeGUI(void) {
 	customlayout->addWidget(modeBox, 0, 0);
 	setLayout(customlayout);
 }
-/*
-QScrollView *sv = new QScrollView(this);
-sv->setResizePolicy(QScrollView::AutoOneFit);
-layout->addWidget(sv);
-
-QWidget *viewport = new QWidget(sv->viewport());
-sv->addChild(viewport);
-QGridLayout *scrollLayout = new QGridLayout(viewport, 1, 2);
-
-size_t nstate = 0, nparam = 0, nevent = 0, ncomment = 0;
-for (size_t i = 0; i < num_vars; i++)
-	{
-	if (vars[i].flags & (PARAMETER | STATE | EVENT | COMMENT))
-		{
-		param_t param;
-		
-		param.label = new QLabel(vars[i].name, viewport);
-		scrollLayout->addWidget(param.label, parameter.size(), 0);
-		param.edit = new DefaultGUILineEdit(viewport);
-		scrollLayout->addWidget(param.edit, parameter.size(), 1);
-		
-		QToolTip::add(param.label, vars[i].description);
-		QToolTip::add(param.edit, vars[i].description);
-		
-		if (vars[i].flags & PARAMETER)
-			{
-			if (vars[i].flags & DOUBLE)
-				{
-				param.edit->setValidator(new QDoubleValidator(param.edit));
-				param.type = PARAMETER | DOUBLE;
-			}
-			else if (vars[i].flags & UINTEGER)
-			{
-				QIntValidator *validator = new QIntValidator(param.edit);
-				param.edit->setValidator(validator);
-				validator->setBottom(0);
-				param.type = PARAMETER | UINTEGER;
-			}
-			else if (vars[i].flags & INTEGER)
-			{
-				param.edit->setValidator(new QIntValidator(param.edit));
-				param.type = PARAMETER | INTEGER;
-			}
-			else
-			param.type = PARAMETER;
-			param.index = nparam++;
-			param.str_value = new QString;
-		}
-		else if (vars[i].flags & STATE)
-		{
-			param.edit->setReadOnly(true);
-			param.edit->setPaletteForegroundColor(Qt::darkGray);
-			param.type = STATE;
-			param.index = nstate++;
-		}
-		else if (vars[i].flags & EVENT)
-		{
-			param.edit->setReadOnly(true);
-			param.type = EVENT;
-			param.index = nevent++;
-		}
-		else if (vars[i].flags & COMMENT)
-		{
-			param.type = COMMENT;
-			param.index = ncomment++;
-		}
-		
-		parameter[vars[i].name] = param;
-	}
-}
-
-QHBox *hbox1 = new QHBox(this);
-pauseButton = new QPushButton("Pause", hbox1);
-pauseButton->setToggleButton(true);
-QObject::connect(pauseButton,SIGNAL(toggled(bool)),this,SLOT(pause(bool)));
-QPushButton *modifyButton = new QPushButton("Modify", hbox1);
-QObject::connect(modifyButton,SIGNAL(clicked(void)),this,SLOT(modify(void)));
-QPushButton *unloadButton = new QPushButton("Unload", hbox1);
-QObject::connect(unloadButton,SIGNAL(clicked(void)),this,SLOT(exit(void)));
-layout->addWidget(hbox1);
-
-show();
-
-}
-*/
