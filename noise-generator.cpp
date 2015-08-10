@@ -34,12 +34,12 @@ static size_t num_vars = sizeof(vars) / sizeof(DefaultGUIModel::variable_t);
 
 NoiseGen::NoiseGen(void) : DefaultGUIModel("Noise Generator", ::vars, ::num_vars) {
 	setWhatsThis(
-	"<p><b>Noise Generator:</b></p><p>Generates noise of the type specified.</p>");
+		"<p><b>Noise Generator:</b></p><p>Generates noise of the type specified.</p>");
 	initParameters();
 	initStimulus();
 	DefaultGUIModel::createGUI(vars, num_vars); // this is required to create the GUI
 	customizeGUI();
-	update( INIT);
+	update( INIT );
 	refresh();
 	QTimer::singleShot(0, this, SLOT(resizeMe()));
 }
@@ -102,11 +102,11 @@ void NoiseGen::initStimulus() {
 void NoiseGen::updateMode(int state) {
 	if (state == 2) {
 		mode = WHITEBM;
-		update( MODIFY );
+		modify();//update( MODIFY );
 	}
 	else if (state == 0) {
 		mode = OU;
-		update( MODIFY );
+		modify();//update( MODIFY );
 	}
 }
 
