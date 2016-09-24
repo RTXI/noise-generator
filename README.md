@@ -1,17 +1,23 @@
-###Noise Generator
+### Noise Generator
 
-**Requirements:** GSL library (included) 
-**Limitations:** none  
+**Requirements:** GSL library (included)  
+**Limitations:** None  
 
-![Noise Generator GUI](noise-generator.png)  
+![Noise Generator GUI](noise-generator.png)
 
 <!--start-->
-This module continuously generates Gaussian white noise computed using the Box-Muller method. 
+<p><b>Noise Generator:</b></p><p>Generates noise of the type specified.</p>
 <!--end-->
 
-####Output Channels
-1. output(0) – “Noise Waveform”  
+#### Input
 
-####Parameters
-1. Mean  
-2. Variance  
+
+#### Output
+1. output(0) - Noise Waveform : Noise Waveform
+
+#### Parameters
+1. Mean - Mean
+2. Variance - Variance
+
+#### States
+
