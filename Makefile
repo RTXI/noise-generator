@@ -1,17 +1,13 @@
 PLUGIN_NAME = noise_generator
 
-RTXI_INCLUDES = /usr/local/lib/rtxi_includes
+RTXI_INCLUDES =
 
 HEADERS = noise-generator.h\
-          $(RTXI_INCLUDES)/generator.h\
-          $(RTXI_INCLUDES)/gen_whitenoise.h
 
 SOURCES = noise-generator.cpp \
-          moc_noise-generator.cpp\
-          $(RTXI_INCLUDES)/generator.cpp\
-          $(RTXI_INCLUDES)/gen_whitenoise.cpp
+          moc_noise-generator.cpp
 
-LIBS = -lgsl
+LIBS = -lgsl -lrtgen
  
 ### Do not edit below this line ###
 
