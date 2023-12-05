@@ -66,6 +66,7 @@ void noise_generator::Component::execute()
       break;
     case RT::State::PERIOD:
       initStimulus();
+      setState(RT::State::EXEC);
       break;
     case RT::State::PAUSE:
       break;
