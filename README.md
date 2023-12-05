@@ -6,7 +6,9 @@
 ![Noise Generator GUI](noise-generator.png)
 
 <!--start-->
-**Noise Generator**: Generates noise of the type specified.</p>
+
+**Noise Generator**: Generates noise of the type specified.
+
 <!--end-->
 
 #### Input
