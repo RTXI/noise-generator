@@ -6,7 +6,7 @@
 ![Noise Generator GUI](noise-generator.png)
 
 <!--start-->
-<p><b>Noise Generator:</b></p><p>Generates noise of the type specified.</p>
+**Noise Generator**: Generates noise of the type specified.</p>
 <!--end-->
 
 #### Input
@@ -18,6 +18,4 @@
 #### Parameters
 1. Mean - Mean
 2. Variance - Variance
-
-#### States
 
