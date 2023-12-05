@@ -3,7 +3,7 @@
 **Requirements:** GSL library (included)  
 **Limitations:** None  
 
-![](noise-generator.png)
+![Noise Generator](./noise-generator.png)
 
 <!--start-->
 
