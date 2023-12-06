@@ -54,15 +54,15 @@ void noise_generator::Component::execute()
       writeoutput(0, whitenoisewave.get() + mean);
       break;
     case RT::State::INIT:
-      initParameters();
-      initStimulus();
-      setState(RT::State::EXEC);
-      break;
-    case RT::State::MODIFY:
       mean = getValue<double>(PARAMETER::MEAN);
       variance = getValue<double>(PARAMETER::VARIANCE);
       initStimulus();
       setState(RT::State::EXEC);
+    case RT::State::MODIFY:
+      mean = getValue<double>(PARAMETER::MEAN);
+      variance = getValue<double>(PARAMETER::VARIANCE);
+      initStimulus();
+      setState(RT::State::PAUSE);
       break;
     case RT::State::PERIOD:
       initStimulus();
@@ -71,7 +71,6 @@ void noise_generator::Component::execute()
     case RT::State::PAUSE:
       break;
     case RT::State::UNPAUSE:
-      initStimulus();
       setState(RT::State::EXEC);
       break;
     default:
