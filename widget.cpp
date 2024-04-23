@@ -87,7 +87,7 @@ void noise_generator::Component::initParameters()
 void noise_generator::Component::initStimulus()
 {
   whitenoisewave.clear();
-  whitenoisewave.init(variance);
+  whitenoisewave.setVariance(variance);
 }
 
 ///////// DO NOT MODIFY BELOW //////////
